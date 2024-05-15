@@ -591,7 +591,7 @@ Module.register("MMM-MyScoreboard",{
 
   socketNotificationReceived: function(notification, payload) {
     if ( notification === "MMM-MYSCOREBOARD-SCORE-UPDATE" && payload.instanceId == this.identifier) {
-      Log.info("[MMM-MyScoreboard] Updating Today's Scores");
+      Log.info("[MMM-MyScoreboard] Updating Scores");
       this.loaded = true;
       this.sportsData[payload.index] = payload.scores;
       if ( this.config.alwaysShowToday && moment().hour() >= this.config.rolloverHour ) {
@@ -602,9 +602,6 @@ Module.register("MMM-MyScoreboard",{
       Log.info("[MMM-MyScoreboard] Updating Yesterday's Scores");
       this.loaded = true;
       this.sportsDataYd[payload.index] = payload.scores;
-      //if ( !this.config.alwaysShowToday ) {
-      //  this.sportsData[payload.index] = new Array();
-      //}
       this.updateDom();
     } else if (notification === "MMM-MYSCOREBOARD-LOCAL-LOGO-LIST" && payload.instanceId == this.identifier) {
       this.localLogos = payload.logos;
@@ -612,6 +609,7 @@ Module.register("MMM-MyScoreboard",{
       /*
         get scores and set up polling
       */
+     
       this.getScores();
 
       /*
@@ -733,6 +731,7 @@ Module.register("MMM-MyScoreboard",{
       };
 
       self.sendSocketNotification("MMM-MYSCOREBOARD-GET-SCORES", payload);
+     
     });
 
   },
