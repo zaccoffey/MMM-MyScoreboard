@@ -53,9 +53,12 @@ followed by
 
 ## Installation
 
-1. Navigate into your MagicMirror `modules` folder and execute<br>
-`git clone https://github.com/jclarke0000/MMM-MyScoreboard`.
-2. Enter the new `MMM-MyScoreboard` directory and execute `npm install`.
+```sh
+cd ~/MagicMirror/modules
+git clone https://github.com/jclarke0000/MMM-MyScoreboard
+cd MMM-MyScoreboard
+npm install
+```
 
 
 ## Notice to anyone updating from previous versions
