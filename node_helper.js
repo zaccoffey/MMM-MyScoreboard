@@ -52,19 +52,12 @@ module.exports = NodeHelper.create({
       }
 
         console.log("whichDay: " + payload.whichDay);
-        if (payload.whichDay == 'today') {
-          provider.getScores(payload.league, payload.teams, moment(), function(scores) {
+        if (payload.whichDay != 'both') {
+          provider.getScores(payload.league, payload.teams, payload.gameDate, function(scores) {
             self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE", {instanceId: payload.instanceId, index: payload.index, scores: scores});
               console.log(scores);
             });
-          self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE-YD", {instanceId: payload.instanceId, index: payload.index, scores: {}});
-        } else if (payload.whichDay == 'yesterday') {
-          provider.getScores(payload.league, payload.teams, moment().subtract(1, "day"), function(scores) {
-            self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE-YD", {instanceId: payload.instanceId, index: payload.index, scores: scores});
-              console.log(scores);
-            });
-          self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE", {instanceId: payload.instanceId, index: payload.index, scores: {}});
-        } else if (payload.whichDay == 'both') {
+        } else {
           provider.getScores(payload.league, payload.teams, moment(), function(scores) {
             self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE", {instanceId: payload.instanceId, index: payload.index, scores: scores});
               console.log(scores);
