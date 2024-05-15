@@ -541,11 +541,10 @@ Module.register("MMM-MyScoreboard",{
           var leagueSeparator = document.createElement("div");
           leagueSeparator.classList.add("league-separator");
           if (sport.label) {
-            separatorText = "<span>" + sport.label + "</span>";
+            leagueSeparator.innerHTML = "<span>" + sport.label + "</span>";
           } else {
-            separatorText = "<span>" + sport.league + "</span>";
+            leagueSeparator.innerHTML = "<span>" + sport.league + "</span>";
           }
-          leagueSeparator.innerHTML = separatorText
           wrapper.appendChild(leagueSeparator);
         }
         self.sportsData[index].forEach(function(game, gidx) {
@@ -554,22 +553,16 @@ Module.register("MMM-MyScoreboard",{
           wrapper.appendChild(boxScore);
         });
       }
-      if (self.sportsDataYd[index] != null && self.sportsDataYd[index].length > 0) {
+      if (self.sportsDataYd[index] != null && self.sportsDataYd[index].length > 0 && self.config.alwaysShowToday) {
         anyGames = true;
         if (self.config.showLeagueSeparators) {
           var leagueSeparator = document.createElement("div");
           leagueSeparator.classList.add("league-separator");
           if (sport.label) {
-            separatorText = "<span>" + sport.label;
+            leagueSeparator.innerHTML = "<span>" + sport.label + " - Yesterday</span>";
           } else {
-            separatorText = "<span>" + sport.league;
+            leagueSeparator.innerHTML = "<span>" + sport.league + " - Yesterday</span>";
           }
-          if (self.config.alwaysShowToday) {
-            separatorText = separatorText + " - Yesterday</span>";
-          } else {
-            separatorText = separatorText + "</span>";
-          }
-          leagueSeparator.innerHTML = separatorText
           wrapper.appendChild(leagueSeparator);
         }
         self.sportsDataYd[index].forEach(function(game, gidx) {
@@ -605,7 +598,7 @@ Module.register("MMM-MyScoreboard",{
       //  this.sportsDataYd[payload.index] = new Array();
       //}
       this.updateDom();
-    } else if ( notification === "MMM-MYSCOREBOARD-SCORE-UPDATE-YD" && payload.instanceId == this.identifier) {
+    } else if ( notification === "MMM-MYSCOREBOARD-SCORE-UPDATE-YD" && payload.instanceId == this.identifier && this.config.alwaysShowToday) {
       Log.info("[MMM-MyScoreboard] Updating Yesterday's Scores");
       this.loaded = true;
       this.sportsDataYd[payload.index] = payload.scores;
@@ -708,18 +701,23 @@ Module.register("MMM-MyScoreboard",{
 
     var gameDate = moment(); //get today's date
 
+    if (gameDate.hour() < this.config.rolloverHours) {
+      /*
+        it's past midnight local time, but within the
+        rollover window.  Query for yesterday's games,
+        not today's
+      */
+      gameDate.subtract(1, "day");
+    }
+
     //just used for debug, if you want to force a specific date
     if (this.config.DEBUG_gameDate) {
       gameDate = moment(this.config.DEBUG_gameDate, "YYYYMMDD");
     }
 
-    var whichDay = 'today'
-    if (gameDate.hour() < this.config.rolloverHours) {
-      if (!this.config.alwaysShowToday) {
-        whichDay = 'yesterday'
-      } else {
-        whichDay = 'both'
-      }
+    var whichDay = 'one'
+    if (this.config.alwaysShowToday) {
+      whichDay = 'both'
     }
 
     var self = this;
