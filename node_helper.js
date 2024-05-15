@@ -67,6 +67,7 @@ module.exports = NodeHelper.create({
             self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE", {instanceId: payload.instanceId, index: payload.index, scores: scores});
               console.log(scores);
             });
+          self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE-YD", {instanceId: payload.instanceId, index: payload.index, scores: {}});
         }
 
     } else if (notification == "MMM-MYSCOREBOARD-GET-LOCAL-LOGOS") {
