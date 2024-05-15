@@ -598,7 +598,7 @@ Module.register("MMM-MyScoreboard",{
         this.sportsDataYd[payload.index] = new Array();
       }
       this.updateDom();
-    } else if ( notification === "MMM-MYSCOREBOARD-SCORE-UPDATE-YD" && payload.instanceId == this.identifier && this.config.alwaysShowToday ) {
+    } else if ( notification === "MMM-MYSCOREBOARD-SCORE-UPDATE-YD" && payload.instanceId == this.identifier && this.config.alwaysShowToday && moment().hour() < this.config.rolloverHour ) {
       Log.info("[MMM-MyScoreboard] Updating Yesterday's Scores");
       this.loaded = true;
       this.sportsDataYd[payload.index] = payload.scores;
