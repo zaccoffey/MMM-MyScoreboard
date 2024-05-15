@@ -601,17 +601,17 @@ Module.register("MMM-MyScoreboard",{
       Log.info("[MMM-MyScoreboard] Updating Today's Scores");
       this.loaded = true;
       this.sportsData[payload.index] = payload.scores;
-      //if ( moment().hour() >= this.config.rolloverHour ) {
-      //  this.sportsDataYd[payload.index] = new Array();
-      //}
+      if ( moment().hour() >= this.config.rolloverHour ) {
+        this.sportsDataYd[payload.index] = new Array();
+      }
       this.updateDom();
     } else if ( notification === "MMM-MYSCOREBOARD-SCORE-UPDATE-YD" && payload.instanceId == this.identifier) {
       Log.info("[MMM-MyScoreboard] Updating Yesterday's Scores");
       this.loaded = true;
       this.sportsDataYd[payload.index] = payload.scores;
-      //if ( !this.config.alwaysShowToday ) {
-      //  this.sportsData[payload.index] = new Array();
-      //}
+      if ( !this.config.alwaysShowToday ) {
+        this.sportsData[payload.index] = new Array();
+      }
       this.updateDom();
     } else if (notification === "MMM-MYSCOREBOARD-LOCAL-LOGO-LIST" && payload.instanceId == this.identifier) {
       this.localLogos = payload.logos;
