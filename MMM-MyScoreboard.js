@@ -700,6 +700,7 @@ Module.register("MMM-MyScoreboard",{
   getScores: function() {
 
     var gameDate = moment(); //get today's date
+    var whichDay = 'one';
 
     if (gameDate.hour() < this.config.rolloverHours) {
       /*
@@ -708,16 +709,14 @@ Module.register("MMM-MyScoreboard",{
         not today's
       */
       gameDate.subtract(1, "day");
+      if (this.config.alwaysShowToday) {
+        whichDay = 'both';
+      }
     }
 
     //just used for debug, if you want to force a specific date
     if (this.config.DEBUG_gameDate) {
       gameDate = moment(this.config.DEBUG_gameDate, "YYYYMMDD");
-    }
-
-    var whichDay = 'one'
-    if (this.config.alwaysShowToday) {
-      whichDay = 'both'
     }
 
     var self = this;
