@@ -52,6 +52,7 @@ module.exports = NodeHelper.create({
       }
 
         console.log("whichDay: " + payload.whichDay);
+        console.log("gameDate: " + payload.gameDate);
         if (payload.whichDay == 'both') {
           provider.getScores(payload.league, payload.teams, moment(), function(scores) {
             self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE", {instanceId: payload.instanceId, index: payload.index, scores: scores});
