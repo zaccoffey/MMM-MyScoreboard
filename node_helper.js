@@ -51,7 +51,6 @@ module.exports = NodeHelper.create({
         provider2 = this.providers["SNET_YD"];
       }
 
-      console.log("whichDay: " + payload.whichDay);
         if (payload.whichDay == 'today') {
           provider.getScores(payload.league, payload.teams, moment(), function(scores) {
             self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE", {instanceId: payload.instanceId, index: payload.index, scores: scores});
