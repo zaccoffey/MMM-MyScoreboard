@@ -110,7 +110,6 @@ module.exports = {
     var self = this;
 
     var url = "https://mobile-statsv2.sportsnet.ca/ticker?day=" + this.gameDate.format("YYYY-MM-DD");
-    self.usedDate = this.gameDate.format("YYYY-MM-DD");
 
 
     axios.get(url)
