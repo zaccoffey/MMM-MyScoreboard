@@ -648,8 +648,7 @@ module.exports = {
         vScore: parseInt(vTeamData.score),
         status: status,
         hTeamLogoUrl: hTeamData.team.logo ? hTeamData.team.logo : "",
-        vTeamLogoUrl: vTeamData.team.logo ? vTeamData.team.logo : "",
-		date: moment(gameDate).format("YYYY-MM-DD")
+        vTeamLogoUrl: vTeamData.team.logo ? vTeamData.team.logo : ""
       });
 
     });
