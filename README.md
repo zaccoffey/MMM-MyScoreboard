@@ -1,6 +1,6 @@
 # MMM-MyScoreboard
 
-This a module for <strong>MagicMirror</strong><br>
+This a module for **MagicMirror**<br>
 https://magicmirror.builders/<br>
 https://github.com/MichMich/MagicMirror
 
@@ -88,39 +88,19 @@ npm install
 
 Each entry in your `sports` array is an object with the following properties:
 
-<table>
-  <thead>
-    <tr>
-      <th>Property</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>league</code></td>
-      <td><strong>REQUIRED</strong> e.g.: <code>"NHL"</code>. Use any of the bold, uppercase league labaels from the list bleow.<br><br><strong>Type</strong> <code>String</code></td>
-    </tr>
-    <tr>
-      <td><code>label</code></td>
-      <td>If <code>showLeagueSeparators</code> is set to <code>true</code>, you can optionally set a custom label for the separator. Useful in particular to show something other than <code>"NCAAM_MM"</code> for the March Madness tournament.<br><br><strong>Type</strong> <code>String</code><br />Defaults to the value for <code>league</code>.</td>
-    </tr>
-    <tr>
-      <td><code>teams</code></td>
-      <td>An array of teams for which you want to see scores.  Specify teams using their shortcodes (e.g.: <code>"TOR"</code> for Toronto Maple Leafs.<br><br><strong>Type</strong> <code>Array</code><br>See below for a full listing of teams and their short codes<br><br><strong>UPDATE v2.0:</strong> This is no longer required.</td>
-    </tr>
-    <tr>
-      <td><code>groups</code></td>
-      <td>In addition to specifying individual teams, you may also specify groups.  Generally these groups correspond to the league's respective conferences and divisions.  See below for a full listing of groups available for each league. (e.g.: <code>["Atlantic", "Metropolitain"]</code> for teams in the Atlantic and Metropolitain divisions.<br><br><strong>Type</strong> <code>Array</code></td>
-    </tr>
-  </tbody>
-</table>
+| Property   | Description
+|----------- |------------
+| `league`   | **REQUIRED** e.g.: `"NHL"`. Use any of the bold, uppercase league labaels from the list bleow.<br><br>**Type** `String`
+| `label`    | If `showLeagueSeparators` is set to `true`, you can optionally set a custom label for the separator. Useful in particular to show something other than `"NCAAM_MM"` for the March Madness tournament.<br><br>**Type** `String`<br />Defaults to the value for `league`.
+| `teams`    | An array of teams for which you want to see scores.  Specify teams using their shortcodes (e.g.: `"TOR"` for Toronto Maple Leafs.<br><br>**Type** `Array`<br>See below for a full listing of teams and their short codes<br><br>**UPDATE v2.0:** This is no longer required.
+| `groups`   | In addition to specifying individual teams, you may also specify groups.  Generally these groups correspond to the league's respective conferences and divisions.  See below for a full listing of groups available for each league. (e.g.: `["Atlantic", "Metropolitain"]` for teams in the Atlantic and Metropolitain divisions.<br><br>**Type** `Array`
 
-It should be noted that if you specify arrays for both <code>teams</code> and <code>groups</code> they will be added together.  So it's possible to make a team list out of a division and a few other specific teams.  If you omit both parameters, then all games for the particular league will be shown.
+It should be noted that if you specify arrays for both `teams` and `groups` they will be added together.  So it's possible to make a team list out of a division and a few other specific teams.  If you omit both parameters, then all games for the particular league will be shown.
 
 
 ## Example configuration
 
-```
+```js
 {
   module: "MMM-MyScoreboard",
   position: "top_right",
