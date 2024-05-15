@@ -609,7 +609,7 @@ Module.register("MMM-MyScoreboard",{
       /*
         get scores and set up polling
       */
-     
+
       this.getScores();
 
       /*
