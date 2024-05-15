@@ -423,7 +423,6 @@ module.exports = {
       })
       .catch( function(r_err) {
         console.log( "[MMM-MyScoreboard] " + moment().format("D-MMM-YY HH:mm") + " ** ERROR ** Couldn't retrieve " + league + " data for provider ESPN: " + r_err );
-        console.log( "[MMM-MyScoreboard] " + url );        
       })
 
 
@@ -648,7 +647,8 @@ module.exports = {
         vScore: parseInt(vTeamData.score),
         status: status,
         hTeamLogoUrl: hTeamData.team.logo ? hTeamData.team.logo : "",
-        vTeamLogoUrl: vTeamData.team.logo ? vTeamData.team.logo : ""
+        vTeamLogoUrl: vTeamData.team.logo ? vTeamData.team.logo : "",
+		date: moment(gameDate).format("YYYY-MM-DD")
       });
 
     });
