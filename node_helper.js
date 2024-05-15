@@ -55,43 +55,23 @@ module.exports = NodeHelper.create({
         if (payload.whichDay == 'today') {
           provider.getScores(payload.league, payload.teams, moment(), function(scores) {
             self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE", {instanceId: payload.instanceId, index: payload.index, scores: scores});
-              console.log("Sent new SCORE-UPDATE notification:");
-              console.log("scores: ");
               console.log(scores);
-              console.log("index: " + payload.index);
-              console.log("whichDay: " + payload.whichDay);
-              console.log("");
             });
-          self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE-YD", {instanceId: payload.instanceId, index: payload.index, scores: {}});
+          //self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE-YD", {instanceId: payload.instanceId, index: payload.index, scores: {}});
         } else if (payload.whichDay == 'yesterday') {
           provider.getScores(payload.league, payload.teams, moment().subtract(1, "day"), function(scores) {
             self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE-YD", {instanceId: payload.instanceId, index: payload.index, scores: scores});
-              console.log("Sent new SCORE-UPDATE notification:");
-              console.log("scores: ");
               console.log(scores);
-              console.log("index: " + payload.index);
-              console.log("whichDay: " + payload.whichDay);
-              console.log("");
             });
-          self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE", {instanceId: payload.instanceId, index: payload.index, scores: {}});
+          //self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE", {instanceId: payload.instanceId, index: payload.index, scores: {}});
         } else if (payload.whichDay == 'both') {
           provider.getScores(payload.league, payload.teams, moment(), function(scores) {
             self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE", {instanceId: payload.instanceId, index: payload.index, scores: scores});
-              console.log("Sent new SCORE-UPDATE notification:");
-              console.log("scores: ");
               console.log(scores);
-              console.log("index: " + payload.index);
-              console.log("whichDay: " + payload.whichDay);
-              console.log("");
             });
           provider2.getScores(payload.league, payload.teams, moment().subtract(1, "day"), function(scores) {
             self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE-YD", {instanceId: payload.instanceId, index: payload.index, scores: scores});
-              console.log("Sent new SCORE-UPDATE notification:");
-              console.log("scores: ");
               console.log(scores);
-              console.log("index: " + payload.index);
-              console.log("whichDay: " + payload.whichDay);
-              console.log("");
             });
         }
 
