@@ -110,6 +110,7 @@ module.exports = {
     var self = this;
 
     var url = "https://mobile-statsv2.sportsnet.ca/ticker?day=" + this.gameDate.format("YYYY-MM-DD");
+	self.usedDate = this.gameDate.format("YYYY-MM-DD");
 
 
     axios.get(url)
@@ -312,7 +313,8 @@ module.exports = {
         vTeamLogoUrl: game.visiting_team.img_url_90,
         hScore: game.home_team.score,
         vScore: game.visiting_team.score,
-        status: status
+        status: status,
+		date: self.usedDate
       };
 
       formattedGames.push(formattedGame);
