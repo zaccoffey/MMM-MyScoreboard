@@ -423,6 +423,7 @@ module.exports = {
       })
       .catch( function(r_err) {
         console.log( "[MMM-MyScoreboard] " + moment().format("D-MMM-YY HH:mm") + " ** ERROR ** Couldn't retrieve " + league + " data for provider ESPN: " + r_err );
+        console.log( "[MMM-MyScoreboard] " + url );
       })
 
 
