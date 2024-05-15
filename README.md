@@ -91,7 +91,7 @@ Each entry in your `sports` array is an object with the following properties:
 | Property   | Description
 |----------- |------------
 | `league`   | **REQUIRED** e.g.: `"NHL"`. Use any of the bold, uppercase league labaels from the list bleow.<br><br>**Type** `String`
-| `label`    | If `showLeagueSeparators` is set to `true`, you can optionally set a custom label for the separator. Useful in particular to show something other than `"NCAAM_MM"` for the March Madness tournament.<br><br>**Type** `String`<br />Defaults to the value for `league`.
+| `label`    | If `showLeagueSeparators` is set to `true`, you can optionally set a custom label for the separator. Useful in particular to show something other than `"NCAAM_MM"` for the March Madness tournament.<br><br>**Type** `String`<br />**Default** the value for `league`.
 | `teams`    | An array of teams for which you want to see scores.  Specify teams using their shortcodes (e.g.: `"TOR"` for Toronto Maple Leafs.<br><br>**Type** `Array`<br>See below for a full listing of teams and their short codes<br><br>**UPDATE v2.0:** This is no longer required.
 | `groups`   | In addition to specifying individual teams, you may also specify groups.  Generally these groups correspond to the league's respective conferences and divisions.  See below for a full listing of groups available for each league. (e.g.: `["Atlantic", "Metropolitain"]` for teams in the Atlantic and Metropolitain divisions.<br><br>**Type** `Array`
 
