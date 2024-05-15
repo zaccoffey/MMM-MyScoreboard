@@ -71,49 +71,17 @@ npm install
 
 ## Configuration
 
-<table>
-  <thead>
-    <tr>
-      <th>Option</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>showLeagueSeparators</code></td>
-      <td>Whether to show separators between different leagues.<br><br><strong>Type</strong> <code>Boolean</code><br>Defaults to <code>true</code></td>
-    </tr>
-    <tr>
-      <td><code>colored</code></td>
-      <td>Whether to present module in colour or black-and-white.<br><br><strong>Type</strong> <code>Boolean</code><br>Defaults to <code>true</code></td>
-    </tr>
-    <tr>
-      <td><code>rolloverHours</code></td>
-      <td>How many hours past midnight to continue to show the previous day's games.<br><br><strong>Type</strong> <code>Number</code><br>Defaults to <code>3</code> (i.e.: continue to show yesterday's games until 3:00 AM)</td>
-    </tr>
-    <tr>
-      <td><code>viewStyle</code></td>
-      <td>One of the following: <code>largeLogos</code>, <code>mediumLogos</code>, <code>smallLogos</code>, <code>oneLine</code>, <code>oneLineWithLogos</code>, <code>stacked</code> or <code>stackedWithLogos</code>.<br><br><strong>Type</strong> <code>String</code><br>Defaults to <code>largeLogos</code><br />See below for examples of the view styles.</td>
-    </tr>
-    <tr>
-      <td><code>shadeRows</code></td>
-      <td>Whether to shade alternate rows.<br><br><strong>Type</strong> <code>Boolean</code><br>Defaults to <code>false</code></td>
-    </tr>
-    <tr>
-      <td><code>highlightWinners</code></td>
-      <td>For games that are final, the winning team / score is highlighted.<br><br><strong>Type</strong> <code>Boolean</code><br>Defaults to <code>true</code></td>
-    </tr>
-    <tr>
-      <td><code>showRankings</code></td>
-      <td>For the NCAAF and NCAAM, whether to show the rankings for the top 25 teams.<br><br><strong>Type</strong> <code>Boolean</code><br>Defaults to <code>true</code></td>
-    </tr>
-    <tr>
-      <td><code>sports</code></td>
-      <td><strong>REQUIRED</strong> An array of leagues and teams you wish to follow.<br><br><strong>Type</strong> <code>Array</code><br>See below for instructions to configure your <code>sports</code> list.</td>
-    </tr>
-  </tbody>
-</table>
-
+| Option                 | Description
+|----------------------- |------------
+| `showLeagueSeparators` | Whether to show separators between different leagues.<br><br>**Type** `Boolean`<br>**Default** `true`
+| `colored`              | Whether to present module in colour or black-and-white.<br><br>**Type** `Boolean`<br>**Default** `true`
+| `rolloverHours`        | How many hours past midnight to continue to show the previous day's games.<br><br>**Type** `Number`<br>**Default** `3` (i.e.: continue to show yesterday's games until 3:00 AM)
+| `alwaysShowToday`      | Whether to show today's games _along with_ the previous day's games during `rolloverHours` period.<br><br>**Type** `Boolean`<br>**Default** `false`
+| `viewStyle`            | One of the following: `largeLogos`, `mediumLogos`, `smallLogos`, `oneLine`, `oneLineWithLogos`, `stacked` or `stackedWithLogos`.<br><br>**Type** `String`<br>**Default** `largeLogos`<br />See below for examples of the view styles.
+| `shadeRows`            | Whether to shade alternate rows.<br><br>**Type** `Boolean`<br>**Default** `false`
+| `highlightWinners`     | For games that are final, the winning team / score is highlighted.<br><br>**Type** `Boolean`<br>**Default** `true`
+| `showRankings`         | For the NCAAF and NCAAM, whether to show the rankings for the top 25 teams.<br><br>**Type** `Boolean`<br>**Default** `true`
+| `sports`               | **REQUIRED** An array of leagues and teams you wish to follow.<br><br>**Type** `Array`<br>See below for instructions to configure your `sports` list.
 
 
 ## Configuring your sports list
