@@ -60,12 +60,10 @@ module.exports = NodeHelper.create({
             });
           provider2.getScores(payload.league, payload.teams, moment().subtract(1, "day"), function(scores) {
             self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE-YD", {instanceId: payload.instanceId, index: payload.index, scores: scores});
-              console.log(scores);
             });
         } else {
           provider.getScores(payload.league, payload.teams, payload.gameDate, function(scores) {
             self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE", {instanceId: payload.instanceId, index: payload.index, scores: scores});
-              console.log(scores);
             });
           self.sendSocketNotification("MMM-MYSCOREBOARD-SCORE-UPDATE-YD", {instanceId: payload.instanceId, index: payload.index, scores: {}});
         }
